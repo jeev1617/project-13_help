@@ -2,6 +2,7 @@ var bow , arrow,  scene;
 var bowImage, arrowImage, green_balloonImage, red_balloonImage, pink_balloonImage ,blue_balloonImage, backgroundImage;
 var select_balloon=1
 var score=0;
+var arrow;
 
 function preload(){
   
@@ -104,7 +105,7 @@ function draw() {
 
 // Creating  arrows for bow
  function createArrow() {
-  var arrow= createSprite(100, 100, 60, 10);
+  arrow= createSprite(100, 100, 60, 10);
   arrow.addImage(arrowImage);
   arrow.x = 360;
   arrow.y=bow.y;
@@ -119,6 +120,10 @@ function redBalloon() {
   red.velocityX = 3;
   red.lifetime = 150;
   red.scale = 0.1;
+  if (arrow.isTouching(red)) {
+     red.destroy();
+     score+=1
+  }
 }
 
 function blueBalloon() {
@@ -127,6 +132,10 @@ function blueBalloon() {
   blue.velocityX = 3;
   blue.lifetime = 150;
   blue.scale = 0.1;
+  if(arrow.isTouching(blue)){
+blue.destroy();
+score+=1
+}
 }
 
 function greenBalloon() {
@@ -135,6 +144,10 @@ function greenBalloon() {
   green.velocityX = 3;
   green.lifetime = 150;
   green.scale = 0.1;
+  if(arrow.isTouching(green)){
+green.destroy();
+score+=1
+}
 }
 
 function pinkBalloon() {
@@ -143,32 +156,16 @@ function pinkBalloon() {
   pink.velocityX = 3;
   pink.lifetime = 150;
   pink.scale = 1
+  if (arrow.isTouching(pink)){
+pink.destroy();
+score+=1
+}
 }
 
 function points() {
 fill("black");
 textSize(20);
 text("SCORE:"+score,300,20);
-
-if (arrow.isTouching(red)) {
-red.destroy();
-score+=1
-}
-
-if (arrow.isTouching(pink)){
-pink.destroy();
-score+=1
-}
-
-if(arrow.isTouching(green)){
-green.destroy();
-score+=1
-}
-
-if(arrow.isTouching(blue)){
-blue.destroy();
-score+=1
-}
 }
 
 
