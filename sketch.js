@@ -120,10 +120,6 @@ function redBalloon() {
   red.velocityX = 3;
   red.lifetime = 150;
   red.scale = 0.1;
-  if (arrow.isTouching(red)) {
-     red.destroy();
-     score+=1
-  }
 }
 
 function blueBalloon() {
@@ -132,10 +128,6 @@ function blueBalloon() {
   blue.velocityX = 3;
   blue.lifetime = 150;
   blue.scale = 0.1;
-  if(arrow.isTouching(blue)){
-blue.destroy();
-score+=1
-}
 }
 
 function greenBalloon() {
@@ -144,10 +136,6 @@ function greenBalloon() {
   green.velocityX = 3;
   green.lifetime = 150;
   green.scale = 0.1;
-  if(arrow.isTouching(green)){
-green.destroy();
-score+=1
-}
 }
 
 function pinkBalloon() {
@@ -156,10 +144,6 @@ function pinkBalloon() {
   pink.velocityX = 3;
   pink.lifetime = 150;
   pink.scale = 1
-  if (arrow.isTouching(pink)){
-pink.destroy();
-score+=1
-}
 }
 
 function points() {
